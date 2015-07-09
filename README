@@ -1,0 +1,17 @@
+how to set up on Linux:
+1. clone repo
+2. library/Zend should have contents of ZendFramework-1.12.13/library/Zend/
+	Symbolic link should be fine.
+3. create database ca_test
+	echo "create database ca_test" | mysql -u username -p
+4. import database dump ca_test.sql
+	mysql -u username -p -h localhost ca_test < ca_test.sql
+5. edit application/configs/application.ini
+	these lines: 
+		resources.db.adapter = PDO_MYSQL
+		resources.db.params.host = localhost
+		resources.db.params.username = setuser
+		resources.db.params.password = setpass
+		resources.db.params.dbname = ca_test
+		resources.db.params.charset = utf8
+6. config /etc/hosts, virtual host and the rest required to make the site work.
