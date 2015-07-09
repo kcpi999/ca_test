@@ -40,8 +40,8 @@ class RatesRefresherYahoo extends RatesRefresher {
             $code_from = substr($rate['id'], 0, 3);
             $currency_from = $currencies[$code_from];
             $currency_to = $currency_model->getCurrencyByCode($this->currency_to);
-            //print_r($currency_to);die();
-            $date = date('Y-m-d H:i:s', strtotime($rate['Date'] . ' ' . $rate['Time']));
+            // getting GMT datetime.
+            $date = date('Y-m-d H:i:s', strtotime($rate['Date'] . ' ' . $rate['Time'] . ' -1 hour'));
 
             $currency_rate_model = new CurrencyRate();
             $data = array(

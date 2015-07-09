@@ -50,6 +50,7 @@ class Currency extends Zend_Db_Table_Abstract {
             $date = $select->query()->fetch(Zend_Db::FETCH_COLUMN);
             if (!$date) {
                 $currency->rate = '0.00';
+                $currency->updated_at = '2001-01-01 00:00:00'; //long time ago.
                 continue;
             }
 
@@ -60,6 +61,7 @@ class Currency extends Zend_Db_Table_Abstract {
                     ->where('cr.date = ?', $date);
             $rate = $select2->query()->fetch(Zend_Db::FETCH_COLUMN);
             $currency->rate = $rate;
+            $currency->updated_at = $date;
         }
     }
 
