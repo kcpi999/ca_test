@@ -1,0 +1,51 @@
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid #AAA;
+	padding: 4px 6px;
+	
+}
+
+
+
+.nice-one {
+	color: #1E37ED;
+	font-weight: 700;
+}
+
+.rates {
+	width: 600px;
+	padding: 5px 5px 5px 15px;
+}
+
+#currency-rates {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#currency-rates .code {
+	width: 30%;
+}
+
+#currency-rates .currency {
+	width: 40%;
+}
+
+#currency-rates .rate {
+	width: 30%;
+}
+
+.button {
+	cursor: pointer;
+	background-color: #DDD;
+	border-radius: 5px;
+	padding: 3px 6px;
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+	background-color: #E7E7E7;
+}

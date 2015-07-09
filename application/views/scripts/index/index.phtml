@@ -1,0 +1,26 @@
+<div class="main">
+	<h1 class="nice-one">Currency rates</h1>
+	<div class="wrap rates">
+		<table id="currency-rates">
+			<thead>
+				<tr>
+					<th class="code">Code</th>
+					<th class="currency">Currency</th>
+					<th class="rate">Rate</th>
+				</tr>
+			</thead>
+			<tbody>			
+		<?php foreach($this->rates as $rate): ?>
+				<tr id="<?php echo $rate->code; ?>">
+					<td><?php echo $rate->code . ' / RUB'; ?></td>
+					<td><?php echo $rate->name; ?></td>
+					<td><?php echo $rate->rate; ?></td>
+				</tr>
+		<?php endforeach; ?>
+			</tbody>
+		</table>
+		<div class="row">
+			<input type="button" class="button" value="Refresh from outer source" onclick="refresh_rates();" />
+		</div>
+	</div>	
+</div>
