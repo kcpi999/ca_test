@@ -1,4 +1,4 @@
-how to set up on Linux:
+how to set up on Linux (debian and derivatives):
 1. clone repo
 2. library/Zend should have contents of ZendFramework-1.12.13/library/Zend/
 	Symbolic link should be fine.
@@ -15,3 +15,6 @@ how to set up on Linux:
 		resources.db.params.dbname = ca_test
 		resources.db.params.charset = utf8
 6. config /etc/hosts, virtual host and the rest required to make the site work.
+7. if you dont have php5-curl, install curl:
+	sudo apt-get install php5-curl
+	
