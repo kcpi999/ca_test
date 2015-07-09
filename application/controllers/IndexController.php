@@ -12,17 +12,17 @@ class IndexController extends Zend_Controller_Action {
         $currencies = $currency_model->getActiveCurrencies();
         $currency_model->loadRates($currencies, 'RUB');
 
-		$need_refresh = false;
-		$now = strtotime(gmdate('Y-m-d H:i:s'));
+        $need_refresh = false;
+        $now = strtotime(gmdate('Y-m-d H:i:s'));
         foreach ($currencies as $currency) {
-			$updated_at = strtotime($currency->updated_at);
-			if ($now - $updated_at > 60 * 60 * 24) {
-				$need_refresh = true;
-				break;
-			}
+            $updated_at = strtotime($currency->updated_at);
+            if ($now - $updated_at > 60 * 60 * 24) {
+                $need_refresh = true;
+                break;
+            }
         }
         if ($need_refresh) {
-			$rates_refresher = new RatesRefresherYahoo;
+            $rates_refresher = new RatesRefresherYahoo;
             $rates_refresher->refreshRates();
         }
         $currency_model->loadRates($currencies, 'RUB');
